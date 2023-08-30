@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/tutorials/creating_codespace/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Starting Codespace - R Development Environment Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Starting Codespace";
+        var mkdocs_page_input_path = "tutorials/creating_codespace.md";
+        var mkdocs_page_url = "/tutorials/creating_codespace/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> R Development Environment Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Starting Codespace</a>
+    <ul class="current">
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_r/">Running R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_r/">Building R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../contribution_workflow/">R Contribution Workflow</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../update_source/">Updating Source Code</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../patch_update/">Creating a Patch File</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../multi_r_compilation/">Multiple R Version</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../localsetup/">Local Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../codespacestartstop/">Restarting and Stopping</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">R Development Environment Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Tutorials &raquo;</li>
+      <li class="breadcrumb-item active">Starting Codespace</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="codespaces">Codespaces</h2>
+<blockquote>
+<p>You will see the message "Codespace usage for this repository is paid for by ...", with your username. Don't panic!</p>
+<p><strong>Note : Github Codespaces offers 120 core hours of free usage per month for every Github user. So the actual number of free hours is 120 divided by the number of cores you are using to run your codespaces.</strong>
+<strong>Here for the R-dev-env codespace we have set the codespace usage to 4 cores which leads to 30hrs of free usage per month. And it can also be changed according to your preference.</strong></p>
+<p>For more details about codespaces billing, see the <a href="https://github.com/features/codespaces">Codespaces Billing Docs</a>. You can calculate your GitHub services usage with the <a href="https://github.com/pricing/calculator">GitHub Services Pricing Calculator</a> and check your usage allowance under "Codespaces" <a href="https://github.com/settings/billing">here</a>.</p>
+</blockquote>
+<p>1) Click on the 'Open in GitHub Codespaces' button and then click the green 'Create Codespace' button.
+  <img alt="image" src="https://github.com/r-devel/r-dev-env/assets/72031540/d42c5d89-7f1d-46fc-8fdd-44e03311c9b2" /></p>
+<p>2) The codespace setup screen will then be shown. Starting the container may take a minute or so.
+  <img alt="image" src="https://github.com/StarTrooper08/SlimtoolkitActions/assets/72031540/57d88505-3939-402e-8b49-54d083d00afc" /></p>
+<p>3) You will be taken to a VSCode editor within your browser.
+  <img alt="image" src="https://github.com/r-devel/r-dev-env/assets/72031540/0597c261-a110-496c-86a4-9fb08f5dc34d" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../.." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../running_r/" class="btn btn-neutral float-right" title="Running R">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../running_r/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

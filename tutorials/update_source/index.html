@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://example.com/tutorials/update_source/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Updating Source Code - R Development Environment Docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Updating Source Code";
+        var mkdocs_page_input_path = "tutorials/update_source.md";
+        var mkdocs_page_url = "/tutorials/update_source/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> R Development Environment Docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../creating_codespace/">Starting Codespace</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../running_r/">Running R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_r/">Building R</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../contribution_workflow/">R Contribution Workflow</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Updating Source Code</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-change-directory-to-top_srcdir">1) Change Directory to TOP_SRCDIR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-update-using-svn">2) Update using svn</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-check-changes-made-using-diff">3) Check changes made using diff</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-revert-changesoptional-step">4) Revert Changes(Optional step)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-change-directory-and-rebuild">5) Change Directory and Rebuild</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-rebuild-the-source-code">6) Rebuild the Source Code</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../patch_update/">Creating a Patch File</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../multi_r_compilation/">Multiple R Version</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../localsetup/">Local Setup</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../codespacestartstop/">Restarting and Stopping</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../resources/">Resources</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">R Development Environment Docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+          <li>Tutorials &raquo;</li>
+      <li class="breadcrumb-item active">Updating Source Code</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="updating-source-code">Updating Source Code</h2>
+<p>After following through the Contribution workflow and making the following changes, we need to update it inside the source code directory. To do so, first we need to follow this steps:</p>
+<h4 id="1-change-directory-to-top_srcdir">1) Change Directory to TOP_SRCDIR</h4>
+<p>If you are currently inside the BUILDDIR directory or root directory(/workspaces/r-dev-env) make sure to change it to TOP_SRCDIR so that we can update the changes made inside our source code.</p>
+<pre><code class="language-bash">cd $TOP_SRCDIR
+</code></pre>
+<h4 id="2-update-using-svn">2) Update using svn</h4>
+<p>Now we want to update the source code for that we will use svn command update</p>
+<pre><code class="language-bash">svn update
+</code></pre>
+<h4 id="3-check-changes-made-using-diff">3) Check changes made using diff</h4>
+<p>To cross check the changes we made in source code. We will use this command</p>
+<pre><code class="language-bash">svn diff
+</code></pre>
+<h4 id="4-revert-changesoptional-step">4) Revert Changes(Optional step)</h4>
+<p>In some cases, we might want to revert the changes we made. We can use the revert command</p>
+<p>To revert the changes made in specific file, we can use</p>
+<pre><code class="language-bash">svn revert src/library/utils/R/askYesNo.R
+</code></pre>
+<p>To revert changes in a directory</p>
+<pre><code class="language-bash">svn revert src/lib/utils
+</code></pre>
+<p>To revert all local changes</p>
+<pre><code class="language-bash">svn revert -R .
+</code></pre>
+<h4 id="5-change-directory-and-rebuild">5) Change Directory and Rebuild</h4>
+<p>To rebuild the R version and reflect on the changes made, we want to change directory to BUILDDIR from TOP_SRCDIR</p>
+<pre><code class="language-bash">cd $BUILDDIR
+</code></pre>
+<h4 id="6-rebuild-the-source-code">6) Rebuild the Source Code</h4>
+<p>Now rebuild using make command</p>
+<pre><code class="language-bash">make check
+make
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../contribution_workflow/" class="btn btn-neutral float-left" title="R Contribution Workflow"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../patch_update/" class="btn btn-neutral float-right" title="Creating a Patch File">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../contribution_workflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../patch_update/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
