@@ -63,5 +63,4 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:devel
           build-args: |
             CONTAINER_VERSION=${{ env.VERSION }}
-          
-          #labels: ${{ steps.meta.outputs.labels }}
+          labels: ${{ steps.meta.outputs.labels }}
