@@ -3,6 +3,9 @@ FROM mcr.microsoft.com/devcontainers/cpp:dev-ubuntu-22.04
 ARG REINSTALL_CMAKE_VERSION_FROM_SOURCE="none"
 
 USER root
+RUN chown -R vscode:vscode /workspaces
+USER vscode
+
 # Optionally install the cmake for vcpkg
 COPY ./reinstall-cmake.sh /tmp/
 
