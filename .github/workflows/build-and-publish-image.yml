@@ -71,16 +71,4 @@ jobs:
           build-args: |
             CONTAINER_VERSION=${{ env.VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64
-
-
-      - name: Build and push ARM based Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:arm.${{ github.ref_name }}
-          build-args: |
-            CONTAINER_VERSION=${{ env.VERSION }}
-          labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/arm64
+          #platforms: linux/amd64
