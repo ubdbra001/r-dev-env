@@ -24,16 +24,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y libmagick++-dev
 
-    - name: Install R packages
+    - name: Install R packages and run script
       run: |
         R -e 'install.packages(c("magick", "tools"), repos = "https://cloud.r-project.org/")'
-
-    - name: Optimize images
-      run: |
         Rscript ./scripts/optimize.R
 
     - name: Commit and push optimized images
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/devel' && github.event_name == 'push'
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -41,4 +38,4 @@ jobs:
         git commit -m 'Optimize docs images'
         git push
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
