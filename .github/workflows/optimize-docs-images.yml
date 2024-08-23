@@ -28,7 +28,6 @@ jobs:
         Rscript ./scripts/optimize.R
 
     - name: Commit and push optimized images
-      if: github.ref == 'refs/heads/devel' && github.event_name == 'push'
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
