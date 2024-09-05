@@ -54,12 +54,12 @@ jobs:
             type=semver,pattern={{ env.VERSION }}
             type=sha
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-
       - name: Build ARM docker image via bash
         run: |
           docker buildx build --progress=plain --platform linux/arm64 -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:arm_test --build-arg CONTAINER_VERSION=${{ env.VERSION }} .
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Build and push ARM based Docker image
         uses: docker/build-push-action@v5
